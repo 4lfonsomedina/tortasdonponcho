@@ -9,7 +9,10 @@ class Inicio extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->view('cabecera.php');
+		$this->load->view('menu.php');
 		$this->load->view('inicio.php');
+		$this->load->view('pie.php');
 	}
 
 }

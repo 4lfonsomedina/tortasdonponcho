@@ -1,0 +1,24 @@
+html{
+	scroll-behavior: smooth;
+}
+label{
+	width: 100%;
+}
+.img_responsiva{
+	width: 70%; max-width: 400px;
+}
+
+.star {
+    visibility: hidden;
+}
+
+.fadeIn {
+    -webkit-animation: animat_show 0.8s;
+    animation: animat_show 0.8s;
+    visibility: visible !important;
+}
+
+@-webkit-keyframes animat_show{
+    0%{opacity:0}
+    100%{opacity:1}
+}
