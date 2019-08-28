@@ -57,7 +57,7 @@
     </div>
 </div>
 <div class="sections alert-primary" id="contacto">
-    <p class = "header"><h1>Encuentranos en...</h1></p>
+    <p class = "header"><h1>Encuentranos en...</h1></p><br><br>
     <div class="row">
           <div class="col-md-6">
             <iframe width="100%" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=Av%20Rio%20San%20Pedro%20Mezquital%2C%20Villa%20Verde%2C%2021395%20Mexicali%2C%20B.C.&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
@@ -80,9 +80,10 @@
             </h5>
           </div>
         </div>
-
+<br><br><br>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
                 <p class = "header"><h1>Tu opinión es muy importante para Nosotros</h1></p>
                 <form>
                     <div class="col col-xs-12">
@@ -91,7 +92,7 @@
                     <div class="col col-xs-12">
                     <label>Correo<input type="text" class="form-control"></label>
                     </div>
-                    <div class="col col-xs-12 col-lg-6"><label>Mensaje<textarea class="form-control" rows="5"></textarea></label>
+                    <div class="col col-xs-12"><label>Mensaje<textarea class="form-control" rows="5"></textarea></label>
                     <button class="btn btn-primary">Enviar</button>
                 </form>
             </div>
