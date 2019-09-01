@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'tortasdo_admin',
+	'hostname' => 'fdb20.awardspace.net',
+	'username' => '3142333_tortas',
 	'password' => 'Medinaaljr.920624',
-	'database' => 'tortasdo_db',
+	'database' => '3142333_tortas',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

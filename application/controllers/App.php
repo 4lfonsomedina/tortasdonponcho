@@ -52,6 +52,45 @@ class App extends CI_Controller {
 		}
 		else{echo "0|Correo y/o usuario invalidos";}
 	}
+
+	//envio de correo para renovacion de clave
+	function renovacion(){
+		//verificar que el campo no este vacio
+		if($_POST['correo']==""){
+			echo "0|Favor de llenar el campo de correo";exit;
+		}
+		//verificar si existe el correo
+		if(!$this->App_model->existe_correo($_POST['correo'])){
+			echo "0|Esta dirección de correo (".$_POST['correo'],") NO se encuentra registrada.";exit;
+		}
+		//enviar correo
+
+		$this->load->library('email');
+        $this->email->set_newline("\r\n");
+        $config = Array(
+		    'protocol'  	=> 'smtp',
+		    'smtp_host' 	=> 'ssl://smtp.googlemail.com',
+		    'smtp_port' 	=> 465,
+		    'smtp_user' 	=> 'tortasdonponcho@gmail.com',
+		    'smtp_pass' 	=> 'Medinaaljr.920624',
+		    'smtp_from_name'=> 'Tortas Do Poncho',
+		    'wordwrap' 		=> TRUE,
+		    'newline' 		=> "\r\n",
+		    'mailtype' 		=> 'html'
+		); 
+        $this->email->initialize($config);
+
+
+		$this->email->from('tortasdonponcho@gmail.com', 'Tortas Don Poncho');
+		$this->email->to($_POST['correo']);
+		$this->email->subject("Recuperación de clave TortasDonPoncho");
+		$this->email->message("Esto es una prueba para cambiar clave");
+        if($this->email->send()){
+            echo $this->email->print_debugger();
+        }else{
+            echo $this->email->print_debugger();
+        }
+	}
 	//funcion que retorna las ordenes en proceso
 	public function get_orden(){
 
