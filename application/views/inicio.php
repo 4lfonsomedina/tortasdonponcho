@@ -67,13 +67,13 @@
               <b>Direccion:</b><br> Av. Rio San Pedro #1654 local 12 esquina con Rio Verde, fraccionamiento Villa Verde, Mexicali, B.C.<br><br>
             </h5>
             <h5>
-              <b><i class="fa fa-phone-square" aria-hidden="true"></i> Telefono:</b> <br>6861222068<br><br>
+              <b><i class="fa fa-phone-square" aria-hidden="true"></i> Telefono:</b> <br>(686) 1 22 20 68<br><br>
             </h5>
             <h5>
-              <b><i class="fa fa-whatsapp" aria-hidden="true"></i>  Whatsapp:</b> <br>(686) 1222068<br><br>
+              <b><i class="fa fa-whatsapp" aria-hidden="true"></i>  Whatsapp:</b> <br>(686) 1 22 20 68<br><br>
             </h5>
             <h5>
-              <b><i class="fa fa-envelope" aria-hidden="true"></i> Correo:</b> <br>ventas@trtasdonponcho.com<br><br>
+              <b><i class="fa fa-envelope" aria-hidden="true"></i> Correo:</b> <br>TortasDonPoncho@gmail.com<br><br>
             </h5>
             <h5>
               <b>Facebook:</b> <br><a href="https://www.facebook.com/TortasDonPoncho" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i>/TortasDonPoncho</a>
@@ -98,5 +98,9 @@
             </div>
         </div>
 </div>
+<br><br><br>
+<div class="col-md-12" style="text-align: center;">
+Diseño web y desarrollo web. Un proyecto de Familia Medina Gomez. 
+    <a style="text-decoration: none;color: blue" href="<?= site_url('inicio/aviso_privacidad') ?>">Aviso de privacidad</a></div>
 
 
