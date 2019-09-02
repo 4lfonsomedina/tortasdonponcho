@@ -108,6 +108,9 @@ class App extends CI_Controller {
 		}
 	}
 	function renovacion_clave_ok(){
+		if($_POST['clave']==""||$_POST['clave2']==""){
+			echo "0|Favor de llenar todos los campos";exit;
+		}
 		if($_POST['clave']!=$_POST['clave2']){
 			echo "0|La contraseña no coincide";exit;
 		}
