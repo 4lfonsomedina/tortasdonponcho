@@ -15,7 +15,9 @@
 
 	<!-- Font-awesome -->
 	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/plugins/font-awesome/css/font-awesome.min.css')?>">
-	
+	<script type="text/javascript">
+		if (location.protocol != 'https:'){location.href = 'https:' + window.location.href.substring(window.location.protocol.length);}
+	</script>
 </head>
 <body>
 

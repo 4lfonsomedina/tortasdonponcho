@@ -1,0 +1,3 @@
+<h1 style="text-align: center;"><img style="font-size: 14px;" src="cid:<?= $cid ?>" alt="logo_con_fondo" height="200px" /><br />&iexcl;<span class="il">Recupera</span>&nbsp;tu&nbsp;contrase&ntilde;a!</h1>
+<p style="text-align: center;">Para crear una nueva contrase&ntilde;a entra al siguiente enlace</p>
+<p style="text-align: center;"><a href="<?= site_url('app/renovacion_clave').'?token='.$llave?>" style="background-color: #008cba; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;"> Renovar Contrase&ntilde;a</a></p>

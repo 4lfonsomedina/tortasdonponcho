@@ -63,15 +63,16 @@ class App extends CI_Controller {
 		if(!$this->App_model->existe_correo($_POST['correo'])){
 			echo "0|Esta dirección de correo (".$_POST['correo'],") NO se encuentra registrada.";exit;
 		}
+		//activar vandera de renovacion de clave y extraer md5 de clave
+		$data['llave'] = $this->App_model->activar_renovacion($_POST['correo']);
 		//enviar correo
-
 		$this->load->library('email');
         $this->email->set_newline("\r\n");
         $config = Array(
-		    'protocol'  	=> 'smtp',
-		    'smtp_host' 	=> 'ssl://smtp.googlemail.com',
-		    'smtp_port' 	=> 465,
-		    'smtp_user' 	=> 'tortasdonponcho@gmail.com',
+		    'protocol'  	=> 'mail',
+		    'smtp_host' 	=> 'mboxhosting.com',
+		    'smtp_port' 	=> 587,
+		    'smtp_user' 	=> 'notificaciones@tortasdonponcho.com',
 		    'smtp_pass' 	=> 'Medinaaljr.920624',
 		    'smtp_from_name'=> 'Tortas Do Poncho',
 		    'wordwrap' 		=> TRUE,
@@ -79,17 +80,41 @@ class App extends CI_Controller {
 		    'mailtype' 		=> 'html'
 		); 
         $this->email->initialize($config);
-
-
-		$this->email->from('tortasdonponcho@gmail.com', 'Tortas Don Poncho');
+        $logo=getcwd()."/assets/imagenes/logo_con_fondo.png";
+        $this->email->attach($logo);
+        $data['cid']=$cid = $this->email->attachment_cid($logo);
+		$mail_body = $this->load->view('APP/recuperacion', $data, TRUE);
+		$this->email->from('notificaciones@tortasdonponcho.com', 'TortasDonPoncho');
 		$this->email->to($_POST['correo']);
 		$this->email->subject("Recuperación de clave TortasDonPoncho");
-		$this->email->message("Esto es una prueba para cambiar clave");
+		$this->email->message($mail_body);
+		//$this->email->attach("/assets/logo_con_fondo.png", "inline");
         if($this->email->send()){
             echo $this->email->print_debugger();
         }else{
             echo $this->email->print_debugger();
         }
+	}
+
+	function renovacion_clave(){
+		//verificar que exista token
+		if($this->App_model->verificar_renovacion($_GET['token'])){
+			$data['token']=$_GET['token'];
+			$this->load->view('cabecera.php');
+			$this->load->view('clientes/renovacion.php',$data);
+			//$this->load->view('pie.php');
+		}else{
+			Redirect("inicio");
+		}
+	}
+	function renovacion_clave_ok(){
+		if($_POST['clave']!=$_POST['clave2']){
+			echo "0|La contraseña no coincide";exit;
+		}
+		if(strlen($_POST['clave'])<6){
+			echo "0|Por seguridad de tus datos, La contraseña debe contener al menos 6 caracteres";exit;
+		}
+		$this->App_model->renovacion_clave($_POST['token'],$_POST['clave']);
 	}
 	//funcion que retorna las ordenes en proceso
 	public function get_orden(){
